@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Font: Comfortaa -->
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="style.css">
+
+        <title>Weather App</title>
+    </head>
+
+    <body>
+        <!-- Main container -->
+        <div class="container">
+
+            <!-- Search box for entering -->
+            <div class="search-box">
+                <i class="fa-solid fa-location-dot"></i> <!-- Location icon -->
+                <input type="text" placeholder="Enter location"> <!-- Input field for city name -->
+                <button class="fa-solid fa-magnifying-glass"></button> <!-- Search button -->
+            </div>
+
+            <!-- Error message for incalid location -->
+            <div class="not-found">
+                <img src="images/404.png"> <!-- 404 image -->
+                <p>Location not found.</p>
+            </div>
+
+            <!-- Weather information container -->
+            <div class="weather-box">
+                <img src=""> <!-- Weather icon (changes dynamically) -->
+                <p class="temperature"></p> <!-- Temperature display-->
+                <p class="description"></p> <!-- Weather condition description -->
+                <button class="unit-toggle">°C / °F</button> <!-- Temperature unit toggle button -->
+            </div>
+
+            <!-- Weather details: Humidity & Wind Speed -->
+            <div class="weather-details">
+
+                <!-- Humidity section -->
+                <div class="humidity">
+                    <i class="fa-solid fa-water"></i> <!-- Water drop icon -->
+                    <div class="text">
+                        <span></span> <!-- Humidity value (updated dynamically) -->
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <!-- Wind Speed section -->
+                <div class="wind">
+                    <i class="fa-solid fa-wind"></i> <!-- Wind icon -->
+                    <div class="text">
+                        <span></span> <!-- Wind speed value (updated dynamically) -->
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading animation while fetching data -->
+        <div class="loading">Loading...</div>
+
+        <!-- FontAwesome icons -->
+        <script src="https://kit.fontawesome.com/1ad7ad64f6.js" crossorigin="anonymous"></script>
+
+        <!-- JavaScript file for functionality-->
+        <script src="index.js"></script>
+    </body>
+</html>

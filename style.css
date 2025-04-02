@@ -1,0 +1,242 @@
+/* Resets default margins, padding, and borders for all elemnts */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box; /* Ensures padding and borders do not affect width/height */
+}
+
+/* Centers the entire content in the viewpoint*/
+body{
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Aligns elements vertically */
+    justify-content: center; /* Centers elements horizontally */
+    background: #03293a; /* Dark blue background */
+}
+
+/* Main container for the weather app */
+.container{
+    position: relative;
+    width: 450px;
+    height: 105px; /* Initial height before expansion */
+    background: #fff; /* White background for contrast */
+    padding: 28px 32px;
+    overflow: hidden; /* Prevents unwanted scrolling */
+    border-radius: 18px; /* Smooth rounded corners */
+    font-family: "Comfortaa", sans-serif; /* Custom font for a friendly look */
+    transition: 0.6s ease-out; /* Smooth height expansion when results load */
+}
+
+/* Loading indicator - appears when fetching data */
+.loading{
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the loading text */
+    font-family: "Comfortaa", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #03293a; /* Matches theme color */
+}
+
+/* Search box section */
+.search-box{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Input field for city search */
+.search-box input{
+    color:#06283D;
+    width: 80%;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase; /* Converts input text to uppercase */
+    padding-left: 32px;
+}
+
+/* Placeholder styling for the input field */
+.search-box input::placeholder{
+    font-size: 20px;
+    font-weight: 500;
+    color: #03293a; /* Placeholder matches theme */
+    text-transform: capitalize;
+}
+ /* Search button (magnifying glass) */
+.search-box button{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color:#03293a; /* Dark blue icon color */
+    background: #dff6ff; /* Light blue background */
+    border-radius: 50%; /* Circular button */
+    font-size: 22px;
+    transition: 0.4s ease; /* Smooth color transition on hover */
+}
+
+/* Search button hover effect */
+.search-box button:hover{
+    color: #fff;
+    background: #03293a; /* Inverts colors on hover */
+}
+
+/* Positioning for search icon */
+.search-box i{
+    position: absolute;
+    color:#03293a;
+    font-size: 28px;
+}
+
+/* Weather box container */
+.weather-box{
+    text-align: center; /* Centers text content */
+}
+
+/* Weather condition image */
+.weather-box img{
+    width: 60%;
+    margin-top: 30px;
+}
+
+/* Temperature display */
+.weather-box .temperature{
+    position: relative;
+    color:#03293a;
+    font-size: 4rem; /* Large font for emphasis */
+    font-weight: 800;
+    margin-top: 30px;
+    margin-left: -80px; /* Adjusted for better alignment */
+}
+
+/* Temperature unit (°C or °F) */
+.weather-box .temperature span{
+    position: absolute;
+    margin-left: 4px;
+    font-size: 4.5rem; /* Slightly larger for clarity */
+}
+
+/* Weather description text */
+.weather-box .description{
+    color:#03293a;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize; /* Ensures proper case formatting */
+}
+
+/* Unit toggle button (Celsius/Fahrenheit) */
+.unit-toggle{
+    margin-top: 10px;
+    color: #03293a;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Comfortaa", sans-serif;
+    border-radius: 5px;
+    transition: 0.4s ease;
+}
+
+/* Unit toggle button hover effect */
+.unit-toggle:hover{
+    color: #fff;
+    background: #03293a;
+}
+
+/* Weather details section (Humidity & Wind Speed) */
+.weather-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Individual weather details (Humidity and Wind Speed) */
+.weather-details .humidity, .weather-details .wind{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100px;
+}
+
+/* Positioning for humidity display */
+.weather-details .humidity{
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+/* Positioning for wind speed display */
+.weather-details .wind{
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+/* Weather details icons (humidity, wind, etc.) */
+.weather-details i{
+    color:#03293a;
+    font-size: 26px;
+    margin-right: 10px; 
+    margin-top: 3px;
+}
+
+/* Text values for humidity & wind */
+.weather-details span{
+    color:#03293a;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+/* Small descriptive labels for weather details */
+.weather-details p{
+    color:#03293a;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Not found message (when city doesn't exist) */
+.not-found{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    scale: 0;
+    opacity: 0;
+    display: none; /* Initially hidden */
+}
+
+/* Image for 'not found' message */
+.not-found img{
+    width: 70%;
+}
+
+/* 'City not found' text */
+.not-found p{
+    color:#03293a;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+/* Hide weather details by default */
+.weather-box, .weather-details{
+    scale: 0px;
+    opacity: 0;
+}
+
+/* Fade-in animation when weather details appear */
+.fadeIn{
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+
+/* Animation keyframes for fade-in effect */
+@keyframes fadeIn{
+    to{
+        scale: 1;
+        opacity: 1;
+    }
+}
